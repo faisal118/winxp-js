@@ -16,9 +16,38 @@ class Window {
         
         this.resizeW = 0;
         this.resizeH = 0;
-    }   
+    }
+    maximize() {
+        this.w = parseInt(this.elem.style.width);
+        this.h = parseInt(this.elem.style.height);
+        this.x = parseInt(this.elem.style.left);
+        this.y = parseInt(this.elem.style.top);
+        this.elem.classList.remove("normalActive");
+        this.elem.classList.add("maxActive");
+        this.state=1;
+        // this.elem.style.width = window.innerWidth+'px';
+        // this.elem.style.height = (window.innerHeight-30)+'px';
+        this.elem.style.width = 'unset';
+        this.elem.style.height = 'unset';
+        this.elem.style.top = '0px';
+        this.elem.style.left = '0px';
+        this.elem.style.bottom = '30px';
+        this.elem.style.right = '0px';
+    }
+    normalize() {
+        this.state=0;
+        
+        this.elem.classList.add("normalActive");
+        this.elem.classList.remove("maxActive");
+        
+        this.elem.style.width = this.w+'px';
+        this.elem.style.height = this.h+'px';
+        this.elem.style.left = this.x+'px';
+        this.elem.style.top = this.y+'px';
+    }
     load() {
         this.elem.classList.add("window");
+        this.elem.classList.add("normalActive");
         this.elem.style.width = this.w+'px';
         this.elem.style.height = this.h+'px';
         this.elem.style.left = this.x+'px';
@@ -40,12 +69,15 @@ class Window {
         top.classList.add("window-top");
 
         top.addEventListener('mousedown',e=>{
-            this.dragX = window.pageX;
-            this.dragY = window.pageY;
-            this.dragLeft = parseInt(this.elem.style.left);
-            this.dragTop = parseInt(this.elem.style.top);
-            winDrag = true;
-            winDragObj = this;
+            if (this.state==0) {
+                this.dragX = window.pageX;
+                this.dragY = window.pageY;
+                this.dragLeft = parseInt(this.elem.style.left);
+                this.dragTop = parseInt(this.elem.style.top);
+                winDrag = true;
+                winDragObj = this;
+            }
+            
         });
 
 
@@ -53,6 +85,13 @@ class Window {
 
         const topRight = document.createElement("div");
         topRight.classList.add("window-top-right");
+        topRight.addEventListener('mousedown',e=>{
+            if (this.state == 0) {
+                this.maximize();
+            } else {
+                this.normalize();
+            }
+        });
         this.elem.appendChild(topRight);
         
         const left = document.createElement("div");
@@ -108,3 +147,47 @@ class Window {
         document.body.appendChild(this.elem);
     }
 }
+
+
+let winDrag = false;
+let winDragObj = 0;
+let eResize = false;
+let sResize = false;
+let seResize = false;
+window.addEventListener('mousemove', function(e){
+    window.pageX = e.pageX;
+    window.pageY = e.pageY;
+    if (winDrag) {
+        winDragObj.elem.style.left = winDragObj.dragLeft - (winDragObj.dragX - e.pageX) +"px";
+        winDragObj.elem.style.top = winDragObj.dragTop - (winDragObj.dragY - e.pageY) +"px";
+    }
+    if (eResize&&e.pageX>parseInt(winDragObj.elem.style.left)) {
+        winDragObj.elem.style.width = winDragObj.resizeW - (winDragObj.dragX - e.pageX) +"px";
+        if (parseInt(winDragObj.elem.style.width)<120) {
+            winDragObj.elem.style.width = '120px';
+        }
+    }
+    if (sResize&&e.pageY>parseInt(winDragObj.elem.style.top)) {
+        winDragObj.elem.style.height = winDragObj.resizeH - (winDragObj.dragY - e.pageY) +"px";
+        if (parseInt(winDragObj.elem.style.height)<40) {
+            winDragObj.elem.style.height = '40px';
+        }
+    }
+    if (seResize) {
+        winDragObj.elem.style.width = winDragObj.resizeW - (winDragObj.dragX - e.pageX) +"px";
+        if (parseInt(winDragObj.elem.style.width)<120) {
+            winDragObj.elem.style.width = '120px';
+        }
+        winDragObj.elem.style.height = winDragObj.resizeH - (winDragObj.dragY - e.pageY) +"px";
+        if (parseInt(winDragObj.elem.style.height)<40) {
+            winDragObj.elem.style.height = '40px';
+        }
+    }
+});
+
+window.addEventListener('mouseup', function(e){
+    winDrag = false;
+    eResize = false;
+    sResize = false;
+    seResize = false;
+});

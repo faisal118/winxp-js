@@ -55,17 +55,17 @@ body {
 
 
 .window {
-    position:fixed;
+    position: fixed;
+    /* transition: all 0.1s; */
 }
-
-.window-top-left {
+.normalActive .window-top-left {
     width:24px;
     height:30px;
     position:absolute;
     background:url('../img/window_top_left.png');
 }
 
-.window-top-right {
+.normalActive .window-top-right {
     width:80px;
     height:30px;
     position:absolute;
@@ -73,7 +73,7 @@ body {
     background:url('../img/window_top_right.png');
 }
 
-.window-top {
+.normalActive .window-top {
     height:30px;
     position:absolute;
     background:url('../img/window_top.png');
@@ -82,14 +82,14 @@ body {
 }
 
 
-.window-left {
+.normalActive .window-left {
     width:4px;
     position:absolute;
     background:url('../img/window_left.png');
     top:30px;
     bottom:4px;
 }
-.window-right {
+.normalActive .window-right {
     width:4px;
     position:absolute;
     background:url('../img/window_right.png');
@@ -98,7 +98,7 @@ body {
     right:0px;
     cursor:e-resize;
 }
-.window-bottom {
+.normalActive .window-bottom {
     height:4px;
     position:absolute;
     background:url('../img/window_bottom.png');
@@ -108,7 +108,7 @@ body {
     cursor:s-resize;
 }
 
-.window-bottom-left {
+.normalActive .window-bottom-left {
     height:4px;
     width:4px;
     position:absolute;
@@ -116,7 +116,7 @@ body {
     bottom:0px;
     left:0px;
 }
-.window-bottom-right {
+.normalActive .window-bottom-right {
     height:4px;
     width:4px;
     position:absolute;
@@ -126,7 +126,7 @@ body {
     cursor:se-resize;
 }
 
-.window-body {
+.normalActive .window-body {
     position:absolute;
     background:#ffffff;
     bottom:4px;
@@ -134,3 +134,57 @@ body {
     left:4px;
     top:30px;
 }
+
+
+
+.maxActive .window-top-left {
+    width:24px;
+    height:30px;
+    position:absolute;
+    background:url('../img/window_top_left.png');
+}
+
+.maxActive .window-top-right {
+    width:80px;
+    height:30px;
+    position:absolute;
+    right:0;
+    background:url('../img/window_top_right.png');
+}
+
+.maxActive .window-top {
+    height:30px;
+    position:absolute;
+    background:url('../img/window_top.png');
+    left:24px;
+    right:80px;
+}
+
+
+.maxActive .window-left {
+    display:none;
+}
+.maxActive .window-right {
+    display:none;
+}
+.maxActive .window-bottom {
+    display:none;
+}
+
+.maxActive .window-bottom-left {
+    display:none;
+}
+.maxActive .window-bottom-right {
+    display:none;
+}
+
+.maxActive .window-body {
+    position:absolute;
+    background:#ffffff;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    top:30px;
+}
+
+
