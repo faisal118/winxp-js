@@ -20,7 +20,7 @@ body {
     background:url('../img/taskbar.png');
     position:fixed;
     bottom:0;
-    z-index:98;
+    z-index:999996;
 }
 
 .startButton {
@@ -43,7 +43,7 @@ body {
     box-shadow: 3px 5px 5px 0px rgba(0,0,0,0.6);
     border-radius: 8px 8px 0px 0px;
     display:none;
-    z-index:99;
+    z-index:999997;
 }
 
 
@@ -89,6 +89,7 @@ body {
     top:30px;
     bottom:4px;
     right:0px;
+    cursor:e-resize;
 }
 .window-bottom {
     height:4px;
@@ -97,6 +98,7 @@ body {
     bottom:0px;
     right:4px;
     left:4px;
+    cursor:s-resize;
 }
 
 .window-bottom-left {
@@ -114,6 +116,7 @@ body {
     background:url('../img/window_bottom_right.png');
     bottom:0px;
     right:0px;
+    cursor:se-resize;
 }
 
 .window-body {

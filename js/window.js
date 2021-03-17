@@ -13,6 +13,9 @@ class Window {
         this.dragY = 0;
         this.dragLeft = 0;
         this.dragTop = 0;
+        
+        this.resizeW = 0;
+        this.resizeH = 0;
     }   
     load() {
         this.elem.classList.add("window");
@@ -51,7 +54,6 @@ class Window {
         const topRight = document.createElement("div");
         topRight.classList.add("window-top-right");
         this.elem.appendChild(topRight);
-
         
         const left = document.createElement("div");
         left.classList.add("window-left");
@@ -59,11 +61,23 @@ class Window {
 
         const right = document.createElement("div");
         right.classList.add("window-right");
+        right.addEventListener('mousedown',e=>{
+            this.dragX = window.pageX;
+            this.resizeW = parseInt(this.elem.style.width);
+            eResize = true;
+            winDragObj = this;
+        });
         this.elem.appendChild(right);
 
 
         const bottom = document.createElement("div");
         bottom.classList.add("window-bottom");
+        bottom.addEventListener('mousedown',e=>{
+            this.dragY = window.pageY;
+            this.resizeH = parseInt(this.elem.style.height);
+            sResize = true;
+            winDragObj = this;
+        });
         this.elem.appendChild(bottom);
 
 
@@ -75,7 +89,14 @@ class Window {
         const bottomRight = document.createElement("div");
         bottomRight.classList.add("window-bottom-right");
         this.elem.appendChild(bottomRight);
-
+        bottomRight.addEventListener('mousedown',e=>{
+            this.dragX = window.pageX;
+            this.dragY = window.pageY;
+            this.resizeW = parseInt(this.elem.style.width);
+            this.resizeH = parseInt(this.elem.style.height);
+            seResize = true;
+            winDragObj = this;
+        });
         
 
         const windowBody = document.createElement("div");
