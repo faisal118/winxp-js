@@ -21,6 +21,7 @@ window.addEventListener('mousedown', function(e){
     }
 });
 
+// make it ready to publish
 let winDrag = false;
 let winDragObj = 0;
 let eResize = false;
