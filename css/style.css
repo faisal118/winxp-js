@@ -28,9 +28,16 @@ body {
     height:30px;
     background:url('../img/start_button.png');
 }
+.startButtonActive {
+    background:url('../img/start_button_active.png');
+}
+
+.startButtonActive:hover {
+    background:url('../img/start_button_active.png');
+}
 
 
-.startButton:hover {
+.startButtonOver:hover {
     background:url('../img/start_button_over.png');
 }
 

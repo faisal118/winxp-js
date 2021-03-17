@@ -3,16 +3,20 @@ const startButton = document.querySelector('.startButton');
 let startShow = false;
 
 
-window.addEventListener('click', function(e){
+window.addEventListener('mousedown', function(e){
     if (startMenu.style.display == 'none') {
         if (startButton.contains(e.target)){
             startMenu.style.display = 'block';
+            startButton.classList.add("startButtonActive");
+            startButton.classList.remove("startButtonOver");
         }
     } else {
         if (startMenu.contains(e.target)){
             
         } else{
             startMenu.style.display = 'none';
+            startButton.classList.remove("startButtonActive");
+            startButton.classList.add("startButtonOver");
         }
     }
 });
