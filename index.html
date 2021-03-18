@@ -3,11 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="css/style.css" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Windows XP by Faisal Jawed</title>
 </head>
 <body>
+    <div class="login-screen">
+        <div class="header">
+            <div class="header-border">
+                
+            </div>
+        </div>
+        <div class="body">
+            <div class="left-panel">
+                    <img src="./img/login/Bitmap123.png" id='xplogo'>
+                    <span class="welcome">welcome</span>
+            </div>
+            <div class="right-panel right-panel-active">
+                <a href="javascript:;" id='myUser' onclick='logMeIn()'><div class='avatar'></div> <span class='username'>Administrator</span> <span class='subtext'>Loading your personal settings...</span></a>
+            </div>
+            <div class="body-border">
+                
+            </div>
+            <!-- <i>welcome</i> -->
+        </div>
+        <div class="footer">
+            <div class="footer-border">
+            </div>
+            <a href='javascript:;' class='turnbutton'><img style='vertical-align:middle;margin-right:5px;' src="./img/login/Bitmap121.png">Turn off computer</a>
+            <div class='footertext'>After you log on, you can add or change accounts.<br />Just go to Control Panel and click User Accounts.</div>
+        </div>
+    </div>
+
+
+
+    
     <div class="desktop">
 
     </div>
@@ -26,6 +57,7 @@
 
     </div>
 
+    <script src="js/login.js"></script>
     <script src="js/window.js"></script>
     <script src="js/script.js"></script>
 </body>

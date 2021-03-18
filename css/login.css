@@ -1,0 +1,188 @@
+.login-screen {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#5a7edc;
+    z-index:1000000;
+}
+.login-screen .header {
+    position:absolute;
+    height:80px;
+    background-color: #00309c;
+    right:0px;
+    left:0px;
+}
+
+.login-screen .header-border {
+    position:absolute;
+    height:2px;
+    background-image: url(../img/login/Bitmap125.png);
+    background-size:cover;
+    right:0px;
+    left:0px;
+    bottom:0px;
+}
+.login-screen .body {
+    position:absolute;
+    background: url(../img/login/Bitmap100.png) no-repeat;
+    right:0px;
+    left:0px;
+    top:80px;
+    bottom:96px;
+    font-family:arial;
+    font-size:14pt;
+    /* font-weight:bold; */
+    color:#ffffff;
+    text-align:center;
+    /* line-height:500px; */
+    /* text-shadow:2px 3px #3151b5; */
+
+}
+
+.login-screen .body .welcome {
+    font-family:arial;
+    font-size:36pt;
+    font-weight:bold;
+    color:#ffffff;
+    text-shadow:2px 3px #3151b5;
+    font-style: italic;
+    padding-right:10px;
+    display:none;
+}
+
+.login-screen .body .left-panel {
+    position:absolute;
+    /* background: #ff0000; */
+    right:50%;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right:20px;
+}
+.login-screen .body .right-panel {
+    position:absolute;
+    /* background: #ffff00; */
+    right:0px;
+    left:50%;
+    top:0px;
+    bottom:0px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left:27px;
+}
+.login-screen .body .right-panel a {
+    width:308px;
+    height:72px;
+    color:#ffffff;
+    font-family: tahoma;
+    font-size:14pt;
+    text-decoration: none;
+    opacity: 0.5;
+    text-align:left;
+    transition:opacity 0.35s;
+    /* background: url(./img/login/Bitmap112.png); */
+}
+.login-screen .body .right-panel a .avatar {
+    position:absolute;
+    width:48px;
+    height:48px;
+    margin-top:10px;
+    margin-left:9px;
+    background: url(../img/login/Bitmap114.png);
+    border:2px solid #ccd6eb;
+    border-radius:5px;
+    box-shadow:2px 2px 4px rgba(0,0,0,0.2);
+}
+.login-screen .body .right-panel-active a:hover {
+    opacity: 1;
+    /* background: url(./img/login/Bitmap112.png); */
+}
+.login-screen .body .right-panel-active a:hover .avatar {
+    
+    border:2px solid #ffc800;
+    border-radius:5px;
+    box-shadow:2px 2px 4px rgba(0,0,0,0.2);
+}
+.login-screen .body .right-panel a .username {
+    position: absolute;
+    margin-left:74px;
+    margin-top:7px;
+}
+.login-screen .body .right-panel a .subtext {
+    position: absolute;
+    margin-left:74px;
+    margin-top:30px;
+    font-size:8.2pt;
+    font-weight: bold;
+    color: #19319c;
+    display:none;
+}
+.login-screen .body .right-panel-active a:focus {
+    opacity: 1;
+    background: url(../img/login/Bitmap112.png);
+}
+.login-screen .body .right-panel-active a:focus .avatar {
+    
+    border:2px solid #ffc800;
+    border-radius:5px;
+    box-shadow:2px 2px 4px rgba(0,0,0,0.2);
+}
+.login-screen .footer {
+    position:absolute;
+    height:96px;
+    /* background-color: #00309c; */
+    background:linear-gradient(to right, #3934ad, #00309c);
+    right:0px;
+    left:0px;
+    bottom:0px;
+}
+
+.login-screen .footer-border {
+    position:absolute;
+    height:2px;
+    background-image: url(../img/login/Bitmap126.png);
+    background-size:cover;
+    right:0px;
+    left:0px;
+}
+
+.login-screen .body .body-border {
+    position:absolute;
+    width:1px;
+    background-image: url(../img/login/Bitmap124.png);
+    background-size:cover;
+    left:50%;
+    top:0px;
+    bottom:0px;
+
+
+}
+
+
+.login-screen .footer a {
+    position:absolute;
+    top:22px;
+    left:25px;
+    color:#ffffff;
+    font-family:Tahoma;
+    text-decoration:none;
+    font-size:14pt;
+}
+.login-screen .footer .footertext {
+    position:absolute;
+    top:22px;
+    right:35px;
+    color:#ffffff;
+    font-family:Tahoma;
+    font-size:10pt;
+    /* line-height:20px; */
+}
+.login-screen .footer a:hover {
+    text-decoration:underline;
+}
