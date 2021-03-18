@@ -1,6 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        .boot-screen {
+            position:fixed;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            background:#000000;
+            z-index:1000001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .boot-image {
+            width:640px;
+            height:480px;
+            background:url('./img/boot/boot.png');
+        }
+        .boot-loader {
+            width:22px;
+            height:9px;
+            background:url('./img/boot/loader.png');
+            position:absolute;
+            margin-left:270px;
+            margin-top:354px;
+        }
+        @keyframes exam2 {
+            from {background-color: red;}
+            to {background-color: yellow;}
+        }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="css/login.css" />
@@ -9,12 +40,15 @@
     <title>Windows XP by Faisal Jawed</title>
 </head>
 <body>
-    <div class="login-screen">
-        <div class="header">
-            <div class="header-border">
-                
+    <div class="boot-screen">
+        <div class="boot-image">
+            <div class="boot-loader">
+
             </div>
         </div>
+    </div>
+    <div class="login-screen">
+        
         <div class="body">
             <div class="left-panel">
                     <img src="./img/login/Bitmap123.png" id='xplogo'>
@@ -28,6 +62,11 @@
             </div>
             <!-- <i>welcome</i> -->
         </div>
+        <div class="header">
+            <div class="header-border">
+                
+            </div>
+        </div>
         <div class="footer">
             <div class="footer-border">
             </div>
@@ -38,7 +77,7 @@
 
 
 
-    
+
     <div class="desktop">
 
     </div>
@@ -53,7 +92,7 @@
     <div class="startButtonActive">
             
     </div>
-    <div class="startMenu">
+    <div class="startMenu" onclick="logMeOut()">
 
     </div>
 
