@@ -10,21 +10,34 @@
             right:0;
             background:#000000;
             z-index:1000001;
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
         }
+        @keyframes fadein {
+            from {opacity:0;}
+            to {opacity:1;}
+        }
+
+        .boot-stage {
+            width:640px;
+            height:480px;
+            animation-name: fadein;
+            animation-duration: 5s;
+        }
         .boot-image {
+            position:absolute;
             width:640px;
             height:480px;
             background:url('./img/boot/boot.png');
+
         }
         .boot-loader {
             width:22px;
             height:9px;
             background:url('./img/boot/loader.png');
             position:absolute;
-            margin-left:270px;
+            margin-left:0px;
             margin-top:354px;
         }
         @keyframes exam2 {
@@ -41,11 +54,15 @@
 </head>
 <body>
     <div class="boot-screen">
-        <div class="boot-image">
+        <div class='boot-stage'>
             <div class="boot-loader">
-
+    
+            </div>
+            <div class="boot-image">
+                
             </div>
         </div>
+        
     </div>
     <div class="login-screen">
         

@@ -1,3 +1,35 @@
+const loader = document.querySelector('.boot-loader');
+let loaderleft = 227;
+//  loaderleft = 372;
+// document.body.style.cursor  = "none";
+// document.body.style.cursor  = "url(./img/mouse_cursor.png)"
+setTimeout(()=>{
+    const loading = setInterval(()=>{
+        if (Math.random()*4>0.5) {
+    
+            loaderleft+=8;
+        }
+        if (loaderleft>380) {
+            loaderleft = 235;
+        }
+        loader.style.marginLeft = loaderleft+'px';
+    },80);
+    
+    setTimeout(()=>{
+        clearInterval(loading);
+        
+        document.querySelector('.boot-stage').style.display = 'none';
+        
+    },6000);
+
+    
+    setTimeout(()=>{
+        document.querySelector('.boot-screen').style.display = 'none';
+    },10000);
+},3000);
+
+
+
 const startMenu = document.querySelector('.startMenu');
 const startButton = document.querySelector('.startButton');
 let startShow = false;
