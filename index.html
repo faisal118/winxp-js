@@ -118,5 +118,14 @@
     <script src="js/desktop.js"></script>
     <script src="js/window.js"></script>
     <script src="js/script.js"></script>
+    <svg xmlns="http://www.w3.org/2000/svg">
+		<filter id="filterColor">
+            <feColorMatrix type="luminanceToAlpha" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="colormatrix"/>
+            <feFlood flood-color="#316ac5" flood-opacity="0.7" x="0%" y="0%" width="100%" height="100%" result="flood"/>
+            <feBlend mode="overlay" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="flood" result="blend1"/>
+            <feComposite in="blend1" in2="SourceGraphic" operator="in" x="0%" y="0%" width="100%" height="100%" result="composite"/>
+        
+        </filter>
+    </svg>
 </body>
 </html>

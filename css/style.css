@@ -4,6 +4,10 @@ body {
     background:url('../img/bliss.jpg') no-repeat center center fixed;
     background-size:cover;
     cursor: url('../img/mouse_cursor.png'), auto;
+    -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
 }
 
 

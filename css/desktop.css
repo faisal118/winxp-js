@@ -8,6 +8,7 @@
 .desktop-icon img {
     margin-top:2px;
     /* margin-left:auto; */
+    /* filter: grayscale(100%); */
 }
 
 .desktop-icon .icon-title {
@@ -15,4 +16,19 @@
     font-size:8pt;
     color:#ffffff;
     text-shadow: 2px 2px 2px #000000;
+    padding-bottom:2px;
+}
+
+.icon-selected {
+}
+
+.icon-selected .icon-title {
+    background:#316ac5;
+    text-shadow: none;
+
+}
+
+.icon-selected img {
+    filter: url(#filterColor); 
+    /* background:#ff0000; */
 }
