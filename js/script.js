@@ -54,6 +54,7 @@ window.addEventListener('mousedown', function(e){
             startMenu.style.display = 'block';
             startButton.classList.add("startButtonActive");
             startButton.classList.remove("startButtonOver");
+            deActAll();
         }
     } else {
         if (startMenu.contains(e.target)){
@@ -70,18 +71,16 @@ window.addEventListener('mousedown', function(e){
 
 let winZIndex = 0;
 
-
-
 const windows = [];
 windows.push(new Window(100,100,500,300));
 windows.push(new Window(400,140,500,300));
 windows.push(new Window(500,200,500,300));
 windows[windows.length-1].activate();
-function deActAll(ind) {
-    windows.forEach((w,i)=>{
-        if (i!=ind) {
-            w.deactivate();
-        }
-    });
+
+
+function deActAll() {
+    windows.forEach(w=>w.deactivate());
+    icons.forEach(i=>i.unSelect());
+
 }
 

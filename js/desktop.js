@@ -36,13 +36,7 @@ class Icon {
     }
 }
 
-function iconsUnSelect(ind) {
-    icons.forEach(i=>{
-        if (i.index!=ind) {
-            i.unSelect();
-        }
-    });
-}
+
 
 
 const icons = [];
@@ -52,8 +46,8 @@ icons.push(new Icon('Recycle Bin',"Icon273.png"));
 
 let desktop = document.querySelector('.desktop');
 desktop.addEventListener('mousedown',e=>{
-    console.log('desktop')
-    iconsUnSelect(1201212);
+    
+    deActAll();
 });
 
 function drawIcons() {

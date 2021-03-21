@@ -2,7 +2,6 @@ class Window {
     constructor(x,y,w,h,i) {
         this.active = true;
         this.state = 0;
-        this.windowIndex = windows.length;
         this.x = x;
         this.y = y;
         this.w = w;
@@ -19,12 +18,14 @@ class Window {
         this.resizeH = 0;
     }
     activate() {
-        this.active = true;
-        if (this.state==0) {
-            this.elem.classList.remove('normalInActive');
-            this.elem.classList.add('normalActive');
-        }
-        deActAll(this.windowIndex);
+        deActAll();
+        setTimeout(() => {
+            this.active = true;
+            if (this.state==0) {
+                this.elem.classList.remove('normalInActive');
+                this.elem.classList.add('normalActive');
+            }
+        }, 0);
     }
     deactivate() {
         this.active = false;
@@ -96,6 +97,16 @@ class Window {
         });
 
 
+        top.addEventListener('dblclick',e=>{
+            if (this.state == 0) {
+                this.maximize();
+            } else {
+                this.normalize();
+            }
+        });
+
+
+
         this.elem.appendChild(top);
 
         const topRight = document.createElement("div");
@@ -107,14 +118,14 @@ class Window {
 
         const closeButton = document.createElement("div");
         closeButton.classList.add("close-button");
-        closeButton.addEventListener('mouseup',e=>{
+        closeButton.addEventListener('click',e=>{
             this.elem.remove();
         });
         this.elem.appendChild(closeButton);
 
         const maximizeButton = document.createElement("div");
         maximizeButton.classList.add("maximize-button");
-        maximizeButton.addEventListener('mouseup',e=>{
+        maximizeButton.addEventListener('click',e=>{
             if (this.state == 0) {
                 this.maximize();
             } else {
