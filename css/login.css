@@ -6,6 +6,7 @@
     right:0;
     background:#5a7edc;
     z-index:1000000;
+    display:none;
 }
 .login-screen .header {
     position:absolute;

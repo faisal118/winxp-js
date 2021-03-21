@@ -1,7 +1,8 @@
 class Window {
-    constructor(x,y,w,h) {
+    constructor(x,y,w,h,i) {
         this.active = true;
         this.state = 0;
+        this.windowIndex = windows.length;
         this.x = x;
         this.y = y;
         this.w = w;
@@ -16,6 +17,19 @@ class Window {
         
         this.resizeW = 0;
         this.resizeH = 0;
+    }
+    activate() {
+        this.active = true;
+        if (this.state==0) {
+            this.elem.classList.remove('normalInActive');
+            this.elem.classList.add('normalActive');
+        }
+        deActAll(this.windowIndex);
+    }
+    deactivate() {
+        this.active = false;
+        this.elem.classList.remove('normalActive');
+        this.elem.classList.add('normalInActive');
     }
     maximize() {
         this.w = parseInt(this.elem.style.width);
@@ -59,6 +73,7 @@ class Window {
             
             this.elem.style.zIndex = winZIndex;
             winZIndex++;
+            this.activate();
         });
 
         const topLeft = document.createElement("div");
@@ -86,13 +101,36 @@ class Window {
         const topRight = document.createElement("div");
         topRight.classList.add("window-top-right");
         topRight.addEventListener('mousedown',e=>{
+            
+        });
+        this.elem.appendChild(topRight);
+
+        const closeButton = document.createElement("div");
+        closeButton.classList.add("close-button");
+        closeButton.addEventListener('mousedown',e=>{
+            
+        });
+        this.elem.appendChild(closeButton);
+
+        const maximizeButton = document.createElement("div");
+        maximizeButton.classList.add("maximize-button");
+        maximizeButton.addEventListener('mouseup',e=>{
             if (this.state == 0) {
                 this.maximize();
             } else {
                 this.normalize();
             }
         });
-        this.elem.appendChild(topRight);
+        this.elem.appendChild(maximizeButton);
+
+        
+        const minimizeButton = document.createElement("div");
+        minimizeButton.classList.add("minimize-button");
+        minimizeButton.addEventListener('mousedown',e=>{
+            
+        });
+        this.elem.appendChild(minimizeButton);
+
         
         const left = document.createElement("div");
         left.classList.add("window-left");

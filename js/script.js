@@ -62,4 +62,13 @@ let winZIndex = 0;
 const windows = [];
 windows.push(new Window(100,100,500,300));
 windows.push(new Window(400,140,500,300));
+windows.push(new Window(500,200,500,300));
+windows[windows.length-1].activate();
+function deActAll(ind) {
+    windows.forEach((w,i)=>{
+        if (i!=ind) {
+            w.deactivate();
+        }
+    });
+}
 
