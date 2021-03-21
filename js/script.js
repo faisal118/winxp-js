@@ -3,6 +3,19 @@ let loaderleft = 227;
 //  loaderleft = 372;
 // document.body.style.cursor  = "none";
 // document.body.style.cursor  = "url(./img/mouse_cursor.png)"
+
+
+function updateClock() {
+    var d = new Date(); 
+    const clock = document.querySelector('.clock');
+    clock.innerHTML =  d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});  
+}
+updateClock();
+
+setInterval(() => {
+    updateClock();
+}, 60000);
+
 setTimeout(()=>{
     const loading = setInterval(()=>{
         if (Math.random()*4>0.5) {

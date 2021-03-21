@@ -26,23 +26,56 @@ body {
     bottom:0;
     z-index:999996;
 }
+.taskbar .tray {
+    position:absolute;
+    right:0;
+    height:30px;
+    width:100px;
+    background:url(../img/tray.png);
+}
 
+.taskbar .tray .tray-right {
+    position:absolute;
+    right:0;
+    height:30px;
+    width:50px;
+    background:url(../img/tray_right.png);
+}
+
+.taskbar .tray .tray-left {
+    position:absolute;
+    height:30px;
+    width:50px;
+    background:url(../img/tray_left.png);
+}
+
+.taskbar .clock {
+    position:absolute;
+    right:18px;
+    height:30px;
+    font-size:8pt;
+    font-family:tahoma;
+    color:#ffffff;
+    line-height:28px;
+
+}
 .startButton {
     width:100px;
     height:30px;
     background:url('../img/start_button.png');
+    background-position-y: 0px;
 }
 .startButtonActive {
-    background:url('../img/start_button_active.png');
+    background-position-y: -60px;
 }
 
 .startButtonActive:hover {
-    background:url('../img/start_button_active.png');
+    background-position-y: -60px;
 }
 
 
 .startButtonOver:hover {
-    background:url('../img/start_button_over.png');
+    background-position-y: -30px;
 }
 
 .startMenu {

@@ -107,8 +107,8 @@ class Window {
 
         const closeButton = document.createElement("div");
         closeButton.classList.add("close-button");
-        closeButton.addEventListener('mousedown',e=>{
-            
+        closeButton.addEventListener('mouseup',e=>{
+            this.elem.remove();
         });
         this.elem.appendChild(closeButton);
 
