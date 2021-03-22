@@ -1,0 +1,47 @@
+.context-menus {
+    position:absolute;
+    z-index:999998;
+}
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+.desktop-context-menu {
+    position:absolute;
+    width:127px;
+    /* height:135px; */
+    background:#ffffff;
+    border:1px solid #aca899;
+    top:0;
+    left:0;
+    animation-name: fadeIn;
+    padding:2px;
+    animation-duration: 0.3s;
+    box-shadow: 2px 3px 2px 0px rgba(0,0,0,0.5);
+}
+
+.context-menu-item {
+    font-family:tahoma;
+    font-size:8pt;
+    color:#000;
+    height:17px;
+    line-height:14px;
+    padding-left:18px;
+}
+
+
+.context-menu-item:hover {
+    background:#316ac5;
+    color:#ffffff;
+}
+
+
+.context-menu-sep {
+    height:4px;
+    /* width:100%; */
+    left:1px;
+    margin-right:1px;
+    border-top:1px solid #aca899;
+    margin-top:3px;
+    margin-left:1px;
+}

@@ -82,5 +82,8 @@ function deActAll() {
     windows.forEach(w=>w.deactivate());
     icons.forEach(i=>i.unSelect());
 
+    if(document.querySelector('.desktop-context-menu')) {
+        document.querySelector('.desktop-context-menu').remove();
+    }
 }
 
