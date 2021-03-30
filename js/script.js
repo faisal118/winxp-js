@@ -72,9 +72,9 @@ window.addEventListener('mousedown', function(e){
 let winZIndex = 0;
 
 const windows = [];
-windows.push(new Window(100,100,500,300));
-windows.push(new Window(400,140,500,300));
-windows.push(new Window(500,200,500,300));
+windows.push(new Window("My Documents","Icon796.png",100,100,500,300));
+windows.push(new Window("My Computer","Icon123.png",400,140,500,300));
+windows.push(new Window("Recycle Bin","Icon273.png",500,200,500,300));
 windows[windows.length-1].activate();
 
 

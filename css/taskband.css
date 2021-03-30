@@ -1,0 +1,151 @@
+.taskband {
+    position:absolute;
+    left:100px;
+    top:3px;
+    z-index:999997;
+}
+
+
+
+
+
+.taskband .taskbandInactive {
+    float:left;
+    height:25px;
+    width:168px;
+    background:url('../img/taskband_button_middle.png');
+}
+
+
+
+.taskband .taskbandInactive:hover {
+    background-position-y: -25px;
+}
+
+
+.taskband .taskbandInactive .taskband-icon {
+    
+    position:absolute;
+    margin-top:4px;
+    margin-left:10px;
+}
+
+
+
+.taskband .taskbandInactive:hover .taskband-left {
+    background-position-y: -25px;
+}
+
+
+.taskband .taskbandInactive:hover .taskband-right {
+    background-position-y: -25px;
+}
+
+.taskband .taskbandInactive .taskband-title {
+    position:absolute;
+    font-family: tahoma;
+    font-size:8pt;
+    color:#ffffff;
+    margin-top:6px;
+    margin-left:31px;
+
+}
+
+
+
+.taskband .taskbandInactive .taskband-left {
+    
+    position:absolute;
+    width:13px;
+    height:25px;
+    background:url('../img/taskband_button.png');
+
+}
+
+
+.taskband .taskbandInactive .taskband-right {
+    
+    position:absolute;
+    width:13px;
+    height:25px;
+    margin-left:155px;
+    background:url('../img/taskband_button.png');
+    background-position-x: -13px;
+
+
+}
+
+
+
+
+
+.taskband .taskbandActive {
+    float:left;
+    height:25px;
+    width:168px;
+    background:url('../img/taskband_button_middle.png');
+    background-position-y: -50px;
+}
+
+
+
+.taskband .taskbandActive:hover {
+    background-position-y: -75px;
+}
+
+
+.taskband .taskbandActive .taskband-icon {
+    
+    position:absolute;
+    margin-top:5px;
+    margin-left:11px;
+}
+
+
+
+.taskband .taskbandActive:hover .taskband-left {
+    background-position-y: -75px;
+}
+
+
+.taskband .taskbandActive:hover .taskband-right {
+    background-position-y: -75px;
+}
+
+.taskband .taskbandActive .taskband-title {
+    position:absolute;
+    font-family: tahoma;
+    font-size:8pt;
+    color:#ffffff;
+    margin-top:7px;
+    margin-left:32px;
+
+}
+
+
+
+.taskband .taskbandActive .taskband-left {
+    
+    position:absolute;
+    width:13px;
+    height:25px;
+    background:url('../img/taskband_button.png');
+    background-position-y: -50px;
+
+}
+
+
+.taskband .taskbandActive .taskband-right {
+    
+    position:absolute;
+    width:13px;
+    height:25px;
+    margin-left:155px;
+    background:url('../img/taskband_button.png');
+    background-position-x: -13px;
+
+    background-position-y: -50px;
+
+}
+
+

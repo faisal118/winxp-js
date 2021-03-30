@@ -1,5 +1,5 @@
 class Window {
-    constructor(x,y,w,h,i) {
+    constructor(title,icon,x,y,w,h,i) {
         this.active = true;
         this.state = 0;
         this.x = x;
@@ -7,7 +7,9 @@ class Window {
         this.w = w;
         this.h = h;    
         this.elem = document.createElement("div");   
-        this.load();
+        this.taskband = document.createElement("div");
+        this.icon = icon;
+        this.title = title;
         this.drag = false;
         this.dragX = 0;
         this.dragY = 0;
@@ -16,21 +18,35 @@ class Window {
         
         this.resizeW = 0;
         this.resizeH = 0;
+        this.load();
     }
     activate() {
         deActAll();
         setTimeout(() => {
             this.active = true;
+            
+            this.taskband.classList.remove("taskbandInactive");
+            this.taskband.classList.add("taskbandActive");
             if (this.state==0) {
                 this.elem.classList.remove('normalInActive');
                 this.elem.classList.add('normalActive');
+            } else if (this.state==1) {
+                this.elem.classList.remove('maxInActive');
+                this.elem.classList.add('maxActive');
             }
         }, 0);
     }
     deactivate() {
         this.active = false;
-        this.elem.classList.remove('normalActive');
-        this.elem.classList.add('normalInActive');
+        this.taskband.classList.add("taskbandInactive");
+        this.taskband.classList.remove("taskbandActive");
+        if (this.state==0) {
+            this.elem.classList.add('normalInActive');
+            this.elem.classList.remove('normalActive');
+        } else if (this.state==1) {
+            this.elem.classList.add('maxInActive');
+            this.elem.classList.remove('maxActive');
+        }
     }
     maximize() {
         this.w = parseInt(this.elem.style.width);
@@ -70,6 +86,7 @@ class Window {
         this.elem.style.zIndex = winZIndex;
         winZIndex++;
 
+
         this.elem.addEventListener('mousedown',e=>{
             
             this.elem.style.zIndex = winZIndex;
@@ -77,10 +94,12 @@ class Window {
             this.activate();
         });
 
+
         const topLeft = document.createElement("div");
         topLeft.classList.add("window-top-left");
         this.elem.appendChild(topLeft);
 
+        
         const top = document.createElement("div");
         top.classList.add("window-top");
 
@@ -120,6 +139,7 @@ class Window {
         closeButton.classList.add("close-button");
         closeButton.addEventListener('click',e=>{
             this.elem.remove();
+            this.taskband.remove();
         });
         this.elem.appendChild(closeButton);
 
@@ -192,8 +212,57 @@ class Window {
         this.elem.appendChild(windowBody);
 
 
+        const wicon = document.createElement("img");
+        wicon.src = 'img/icons/'+this.icon;
+        wicon.width = '16';
+        wicon.classList.add("window-icon");
+        this.elem.appendChild(wicon);
+
+        const wtitle = document.createElement("div");
+        wtitle.innerText = this.title;
+        wtitle.classList.add("window-title");
+        this.elem.appendChild(wtitle);
+
 
         document.body.appendChild(this.elem);
+
+        const tbleft = document.createElement("div");
+        tbleft.classList.add("taskband-left");
+        this.taskband.appendChild(tbleft);
+
+        const tbright = document.createElement("div");
+        tbright.classList.add("taskband-right");
+        this.taskband.appendChild(tbright);
+
+
+
+        
+        const tbicon = document.createElement("img");
+        tbicon.src = 'img/icons/'+this.icon;
+        tbicon.width = '16';
+        tbicon.classList.add("taskband-icon");
+        this.taskband.appendChild(tbicon);
+
+        const tbtitle = document.createElement("div");
+        tbtitle.innerText = this.title;
+        tbtitle.classList.add("taskband-title");
+        this.taskband.appendChild(tbtitle);
+
+
+
+        this.taskband.classList.add("taskbandInactive");
+
+
+
+        this.taskband.addEventListener('mousedown',e=>{
+            
+            this.elem.style.zIndex = winZIndex;
+            winZIndex++;
+            this.activate();
+        });
+        document.querySelector(".taskband").appendChild(this.taskband);
+
+
     }
 }
 

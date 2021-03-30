@@ -10,7 +10,7 @@ class Icon {
       setTimeout(() => this.select(), 0);
     });
     this.elem.addEventListener("dblclick", (e) => {
-      windows.push(new Window(500, 200, 500, 300));
+      windows.push(new Window(this.title,this.image,500, 200, 500, 300));
       windows[windows.length - 1].activate();
     });
     const img = document.createElement("img");
